@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>211743232390-4vk13b23q43t7l1uqb8q2p648568hclr.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.211743232390-4vk13b23q43t7l1uqb8q2p648568hclr</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>211743232390-9bht5j6aed0nhpulnj84d2me545d2i7e.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBWCISt4oiMGUr9DhXU-RH5uZgDRiqUQ6U</string>
+	<key>GCM_SENDER_ID</key>
+	<string>211743232390</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>org.reactjs.native.example.WineryMobile</string>
+	<key>PROJECT_ID</key>
+	<string>winery-app-b819d</string>
+	<key>STORAGE_BUCKET</key>
+	<string>winery-app-b819d.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:211743232390:ios:9ccd27ff5b40fd773d5c07</string>
+	<key>DATABASE_URL</key>
+	<string>https://winery-app-b819d-default-rtdb.europe-west1.firebasedatabase.app</string>
+</dict>
+</plist>

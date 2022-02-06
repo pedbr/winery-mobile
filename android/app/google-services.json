@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "211743232390",
+    "firebase_url": "https://winery-app-b819d-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "winery-app-b819d",
+    "storage_bucket": "winery-app-b819d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:211743232390:android:f9d1fef345991eef3d5c07",
+        "android_client_info": {
+          "package_name": "com.winerymobile"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "211743232390-9bht5j6aed0nhpulnj84d2me545d2i7e.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.winerymobile",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "211743232390-tt81farfub3gfodm24er21p8kntmbtku.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyByYKrHyhl8RaFApPzqKuNgZsIqpUA0Pjw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "211743232390-tt81farfub3gfodm24er21p8kntmbtku.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

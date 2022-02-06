@@ -10,8 +10,28 @@ import {
   Center,
   NativeBaseProvider,
 } from 'native-base'
+import auth from '@react-native-firebase/auth'
 
 const Example = () => {
+  const loginUser = () => {
+    auth()
+      .signInWithEmailAndPassword('pedro@mail.com', 'pedro123pwd')
+      .then(() => {
+        console.log('User account created & signed in!')
+      })
+      .catch(error => {
+        if (error.code === 'auth/email-already-in-use') {
+          console.log('That email address is already in use!')
+        }
+
+        if (error.code === 'auth/invalid-email') {
+          console.log('That email address is invalid!')
+        }
+
+        console.error(error)
+      })
+  }
+
   return (
     <Center w="100%">
       <Box safeArea p="2" py="8" w="90%" maxW="290">
@@ -54,7 +74,7 @@ const Example = () => {
               Forget Password?
             </Link>
           </FormControl>
-          <Button mt="2" colorScheme="indigo">
+          <Button mt="2" colorScheme="indigo" onPress={loginUser}>
             Sign in
           </Button>
         </VStack>
