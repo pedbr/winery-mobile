@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useCallback} from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import {
   Button,
   SafeAreaView,
@@ -10,11 +10,10 @@ import {
 } from 'react-native'
 import auth from '@react-native-firebase/auth'
 import AsyncStorage from '@react-native-async-storage/async-storage'
+import type { NativeStackScreenProps } from '@react-navigation/native-stack'
+// import { useNavigation } from '@react-navigation/native'
 
-import {Colors} from 'react-native/Libraries/NewAppScreen'
-import {useQuery} from 'react-query'
-import {get} from '../api'
-import endpoints from '../api/endpoints'
+import { Colors } from 'react-native/Libraries/NewAppScreen'
 import Login from './Login'
 
 interface User {
@@ -22,9 +21,17 @@ interface User {
   getIdToken: () => string
 }
 
-const HomeScreen = () => {
+type RootStackParamList = {
+  Home: undefined
+  Wineries: undefined
+}
+
+const HomeScreen = ({
+  navigation,
+}: NativeStackScreenProps<RootStackParamList, 'Home'>) => {
   const [initializing, setInitializing] = useState(true)
   const [signedUser, setUser] = useState<User | null>()
+  // const navigation = useNavigation()
   const isDarkMode = useColorScheme() === 'dark'
 
   const onAuthStateChanged = useCallback(
@@ -32,6 +39,7 @@ const HomeScreen = () => {
       setUser(user)
       try {
         const token = await user?.getIdToken()
+        console.log('token', token)
         await AsyncStorage.setItem('FBIdToken', `Bearer ${token}`)
       } catch (e) {
         console.error(e)
@@ -54,20 +62,6 @@ const HomeScreen = () => {
     const subscriber = auth().onAuthStateChanged(onAuthStateChanged)
     return subscriber // unsubscribe on unmount
   }, [onAuthStateChanged])
-
-  const fetchWineries = async () => {
-    const res = await get(endpoints.getWineries)
-    console.log('here')
-    return res
-  }
-
-  const {data: wineries, isLoading: wineriesLoading} = useQuery(
-    `wineries-${signedUser?.email}`,
-    fetchWineries,
-  )
-
-  console.log('wineriesLoading', wineriesLoading)
-  console.log('wineries', wineries?.data)
 
   const backgroundStyle = {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
@@ -92,10 +86,10 @@ const HomeScreen = () => {
             backgroundColor: isDarkMode ? Colors.black : Colors.white,
           }}>
           <Text>Grapely {signedUser?.email}</Text>
-          <Text>Wineries:</Text>
-          {wineries?.data?.map((winery: any) => (
-            <Text key={winery.location}>{winery.location}</Text>
-          ))}
+          <Button
+            title="Go to Wineries"
+            onPress={() => navigation.navigate('Wineries')}
+          />
           <Button onPress={signOutUser} title={'Sign Out'} />
         </View>
       </ScrollView>

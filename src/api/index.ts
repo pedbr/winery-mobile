@@ -1,5 +1,5 @@
 import endpoints from './endpoints'
-import {_get, _delete, _post, _patch, _request} from './requestWrappers'
+import { _get, _delete, _post, _patch, _request } from './requestWrappers'
 
 export const get = _get
 export const deleteCall = _delete

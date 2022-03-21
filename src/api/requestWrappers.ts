@@ -5,8 +5,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage'
 // export const BASE_URL =
 //   'https://europe-west1-winery-app-b819d.cloudfunctions.net/api'
 
-export const BASE_URL =
-  'http://localhost:5001/winery-app-b819d/europe-west1/api'
+export const BASE_URL = 'http://10.0.2.2:5000/winery-app-b819d/europe-west1/api'
 
 type MethodType =
   | 'get'
@@ -33,6 +32,7 @@ type MethodType =
 
 const request = async (method: MethodType, url: string, payload?: any) => {
   const token = await AsyncStorage.getItem('FBIdToken')
+  console.log('token from wrapper')
   if (token && token !== 'Bearer undefined') {
     const decodedToken: any = jwtDecode(token)
     if (decodedToken.exp * 1000 > Date.now()) {
