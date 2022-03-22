@@ -2,10 +2,10 @@ import axios from 'axios'
 import jwtDecode from 'jwt-decode'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 
-// export const BASE_URL =
-//   'https://europe-west1-winery-app-b819d.cloudfunctions.net/api'
+export const BASE_URL =
+  'https://europe-west1-winery-app-b819d.cloudfunctions.net/api'
 
-export const BASE_URL = 'http://10.0.2.2:5000/winery-app-b819d/europe-west1/api'
+// export const BASE_URL = 'http://10.0.2.2:5000/winery-app-b819d/europe-west1/api'
 
 type MethodType =
   | 'get'
