@@ -3,34 +3,27 @@ import {
   Button,
   SafeAreaView,
   ScrollView,
-  StatusBar,
   Text,
   useColorScheme,
   View,
 } from 'react-native'
 import auth from '@react-native-firebase/auth'
 import AsyncStorage from '@react-native-async-storage/async-storage'
-import type { NativeStackScreenProps } from '@react-navigation/native-stack'
 
 import { Colors } from 'react-native/Libraries/NewAppScreen'
 import Login from './Login'
+import useNavigation from '../hooks/navigation'
 
 interface User {
   email: string
   getIdToken: () => string
 }
 
-type RootStackParamList = {
-  Home: undefined
-  Wineries: undefined
-}
-
-const HomeScreen = ({
-  navigation,
-}: NativeStackScreenProps<RootStackParamList, 'Home'>) => {
+const HomeScreen = () => {
   const [initializing, setInitializing] = useState(true)
   const [signedUser, setUser] = useState<User | null>()
   const isDarkMode = useColorScheme() === 'dark'
+  const navigation = useNavigation()
 
   const onAuthStateChanged = useCallback(
     async user => {
@@ -74,7 +67,6 @@ const HomeScreen = ({
 
   return (
     <SafeAreaView style={backgroundStyle}>
-      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
       <ScrollView
         contentInsetAdjustmentBehavior="automatic"
         style={backgroundStyle}>
