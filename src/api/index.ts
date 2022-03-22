@@ -9,7 +9,6 @@ export const request = _request
 
 export default {
   endpoints,
-
   get,
   deleteCall,
   post,

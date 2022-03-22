@@ -17,7 +17,6 @@ const WineryScreen = () => {
   const isDarkMode = useColorScheme() === 'dark'
 
   const fetchWineries = async () => {
-    console.log('fetching wineries')
     try {
       const res = await get(endpoints.getWineries)
       if (res?.data) {
@@ -32,9 +31,6 @@ const WineryScreen = () => {
     'wineries',
     fetchWineries,
   )
-
-  console.log('wineriesLoading', wineriesLoading)
-  console.log('wineries', wineries)
 
   const backgroundStyle = {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
@@ -51,9 +47,13 @@ const WineryScreen = () => {
             backgroundColor: isDarkMode ? Colors.black : Colors.white,
           }}>
           <Text>Wineries:</Text>
-          {wineries?.map((winery: any) => (
-            <Text key={winery.location}>{winery.location}</Text>
-          ))}
+          {wineriesLoading ? (
+            <Text>Loading...</Text>
+          ) : (
+            wineries?.map((winery: any) => (
+              <Text key={winery.location}>{winery.location}</Text>
+            ))
+          )}
         </View>
       </ScrollView>
     </SafeAreaView>

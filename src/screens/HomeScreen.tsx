@@ -11,7 +11,6 @@ import {
 import auth from '@react-native-firebase/auth'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import type { NativeStackScreenProps } from '@react-navigation/native-stack'
-// import { useNavigation } from '@react-navigation/native'
 
 import { Colors } from 'react-native/Libraries/NewAppScreen'
 import Login from './Login'
@@ -31,7 +30,6 @@ const HomeScreen = ({
 }: NativeStackScreenProps<RootStackParamList, 'Home'>) => {
   const [initializing, setInitializing] = useState(true)
   const [signedUser, setUser] = useState<User | null>()
-  // const navigation = useNavigation()
   const isDarkMode = useColorScheme() === 'dark'
 
   const onAuthStateChanged = useCallback(
@@ -39,7 +37,6 @@ const HomeScreen = ({
       setUser(user)
       try {
         const token = await user?.getIdToken()
-        console.log('token', token)
         await AsyncStorage.setItem('FBIdToken', `Bearer ${token}`)
       } catch (e) {
         console.error(e)
